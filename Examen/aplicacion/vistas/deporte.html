@@ -1,0 +1,61 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-12 titulo">
+            {{TituloControlador}}
+        </div>
+    </div>
+    <div class="row capa-navegacion">
+        <div class="col-md-12">
+            <ul class="navegacion">
+                <li class="opcion-navegacion" ng-click="redireccionar('inicio');">Volver a men&uacute; principal</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-3">
+            <label for="lugar">Partidos</label>
+            <input type="text" class="form-control" id="lugar" placeholder="Partidos" ng-model="DatosEntrada.lugar">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <button type="button" class="btn btn-success" ng-click="consultarDeporte();">Consultar</button>
+        </div>
+    </div>
+    <div class="container" ng-if="DatosSalida.obtenido">
+        <div class="row">
+            <div class="col-md-12">
+                Resumen Deporte {{DatosSalida.informacionBasica.pais}}
+               
+            </div>
+        </div>
+        <div class="row">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="datos-tabla">Pais</th>
+                        <th class="datos-tabla">Partido</th>
+                        <th class="datos-tabla">Estadio</th>
+                        <th class="datos-tabla">Inicio</th>
+                        <th class="datos-tabla">Torneo</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="datos in DatosSalida.Partidos">
+                        <td class="datos-tabla">{{datos.pais}}</td>
+                        <td class="datos-tabla">{{datos.partido}}</td>
+                        <td class="datos-tabla">{{datos.estadio}}</td>
+                        <td class="datos-tabla">{{datos.inicio}}</td>
+                        <td class="datos-tabla">{{datos.torneo}}</td>
+
+
+
+
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

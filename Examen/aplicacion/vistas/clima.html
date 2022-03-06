@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 titulo">
+      {{TituloControlador}}
+    </div>
+  </div>
+  <div class="row capa-navegacion">
+    <div class="col-md-12">
+      <ul class="navegacion">
+        <li class="opcion-navegacion" ng-click="redireccionar('inicio');">Volver a men&uacute; principal</li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-3">
+      <label for="lugar">Lugar de b&uacute;squeda</label>
+      <input type="text" class="form-control" id="lugar" placeholder="Lugar" ng-model="DatosEntrada.lugar">
+    </div>
+    <div class="form-group col-md-3">
+      <label for="lugar">D&iacute;as de consulta</label>
+      <input type="text" class="form-control" id="dias" placeholder="Dias" ng-model="DatosEntrada.dias">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <button type="button" class="btn btn-success" ng-click="consultarClima();">Consultar</button>
+    </div>
+  </div>
+  <div class="container" ng-if="DatosSalida.obtenido">
+    <div class="row">
+      <div class="col-md-12">
+        Resumen clima {{DatosSalida.informacionBasica.nombre}}
+        <ul>
+          <li>Region: {{DatosSalida.informacionBasica.region}}</li>
+          <li>Pa&iacute;s: {{DatosSalida.informacionBasica.pais}}</li>
+          <li>Latitud: {{DatosSalida.informacionBasica.latitud}}</li>
+          <li>Longitud: {{DatosSalida.informacionBasica.longitud}}</li>
+          <li>Temperatura Actual: {{DatosSalida.actual.temperatura}}</li>
+          <li>Condicion: {{DatosSalida.actual.condicion}} <img src="{{DatosSalida.actual.condicion_icono}}" /></li>
+        </ul>
+      </div>      
+    </div>
+    <div class="row">
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="datos-tabla">Fecha</th>
+            <th class="datos-tabla">Temperatura promedio</th>
+            <th class="datos-tabla">Temp. M&aacute;xima</th>
+            <th class="datos-tabla">Temp. M&iacute;nima</th>
+            <th class="datos-tabla">Probabilidad Lluvia</th>
+            <th class="datos-tabla">Condicion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="datos in DatosSalida.prediccionesDias">
+            <td class="datos-tabla">{{datos.fecha}}</td>
+            <td class="datos-tabla">{{datos.temperaturaPromedio}}</td>
+            <td class="datos-tabla">{{datos.temperaturaMaxima}}</td>
+            <td class="datos-tabla">{{datos.temperaturaMinima}}</td>
+            <td class="datos-tabla">{{datos.probabilidadLluvia}}</td>
+            <td class="datos-tabla">{{datos.condicion}} <img src="{{datos.condicion_icono}}" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-12 titulo">
+            {{TituloControlador}}
+        </div>
+    </div>
+    <div class="row capa-navegacion">
+        <div class="col-md-12">
+            <ul class="navegacion">
+                <li class="opcion-navegacion" ng-click="redireccionar('inicio');">Volver a men&uacute; principal</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-3">
+            <label for="num1">Numero 1</label>
+            <input type="text" class="form-control" id="n11" placeholder="Numero 1">
+        </div>
+        <div class="form-group col-md-3">
+            <label for="num2">Numero 2</label>
+            <input type="text" class="form-control" id="n22" placeholder="Numero 2">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <select id="op" style="height: 50px">
+                <option value="+">Sumar</option>
+                <option value="-">Restar</option>
+                <option value="*">Multiplicar</option>
+                <option value="/">Dividir</option>
+            </select>
+        </div>
+        <div class="col-md-6 col-lg-offset-5">
+            <button id="calcular2">Calcular</button>
+        </div>
+    </div>
+    
+    <br />
+    <div class="form-group col-md-6">
+        <label for="resp">Respuesta</label>
+        <output type="text" id="r2" placeholder="Respuesta" contenteditable="false"></output>
+    </div>
+
+</div>
+
+<script>
+
+    document.querySelector('#calcular2').addEventListener('click', () => {
+        const n1 = parseInt(document.querySelector('#n11').value);
+        const n2 = parseInt(document.querySelector('#n22').value);
+        const op2 = document.querySelector('#op').value;
+        let r;
+        if (op2 == '+') {
+            r = n1 + n2;
+        } else if (op2 == '-') {
+            r = n1 - n2;
+        } else if (op2 == '*') {
+            r = n1 * n2;
+        } else if (op2 == '/') {
+            r = n1 / n2;
+        }
+        document.querySelector('#r2').innerHTML = r;
+    });
+
+</script>

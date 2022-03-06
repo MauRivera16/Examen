@@ -1,0 +1,35 @@
+.titulo 
+{
+  margin-top: 50px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navegacion 
+{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.capa-navegacion 
+{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: #C6C7C8;
+  color: #006729;
+  border-radius: 15px;
+}
+
+.opcion-navegacion 
+{
+  font-size: 16px;
+  margin: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.datos-tabla 
+{
+  text-align: center;
+}
